@@ -1,5 +1,5 @@
 from flask import Response, jsonify, Blueprint, request
-from flask_cors import cross_origin
+from flask_cors import CORS, cross_origin
 from sqlalchemy import desc
 
 from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema

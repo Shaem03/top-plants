@@ -1,7 +1,7 @@
 const base_url = 'http://0.0.0.0:5000'
 
 export function getRegion() {
-    const url = base_url + '/region'
+    const url = base_url + '/api/region'
     let headers = {};
     return fetch(url,
         {

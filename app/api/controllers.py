@@ -55,7 +55,6 @@ def region():
     response = jsonify(
         resp
     ), 200
-
     return response
 
 

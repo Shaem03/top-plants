@@ -1,5 +1,4 @@
 from flask import Response, jsonify, Blueprint, request
-from packaging import _manylinux
 from sqlalchemy import desc
 
 from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema

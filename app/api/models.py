@@ -1,4 +1,4 @@
-from app import db, metadata, ma
+from run import db, metadata, ma
 from sqlalchemy import Table, PrimaryKeyConstraint
 
 

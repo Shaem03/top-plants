@@ -6,14 +6,19 @@ RUN apt-get update -y
 
 RUN apt-get install gunicorn3 -y
 
-ADD . /app/
+ENV INSTALL_PATH /app
 
-WORKDIR /app/
+RUN mkdir -p $INSTALL_PATH
+#ADD . /usr/src/app/
 
-COPY requirements.txt /app/requirements.txt
+WORKDIR $INSTALL_PATH
+
+COPY requirements.txt requirements.txt
 
 RUN pip install --upgrade pip
 
-RUN pip install -r /app/requirements.txt
+RUN pip install -r requirements.txt
 
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app", "--workers=5", "--timeout=300"]
+COPY . .
+
+CMD ["gunicorn", "-b", "0.0.0.0:5001", "wsgi:application", "--workers=5", "--timeout=300"]

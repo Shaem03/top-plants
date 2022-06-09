@@ -1,5 +1,5 @@
 export function getRegion() {
-    const url = '/api/regionasdasd'
+    const url = '/api/region'
     return fetch(url)
         .then(data => data.json())
 }

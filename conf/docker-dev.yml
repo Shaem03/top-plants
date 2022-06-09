@@ -35,7 +35,7 @@ services:
       context: ../
       dockerfile: server/Dockerfile
     container_name: server
-    command: gunicorn --bind 0.0.0.0:5000 --workers 4 --pythonpath /var/www/ "server.create_app:create_app(True)"
+    command: gunicorn --bind 0.0.0.0:5000 --workers 4 --pythonpath /var/www/ "server.create_app:create_app()"
     volumes:
       - ../server:/var/www/server
     networks:
@@ -45,6 +45,6 @@ services:
     expose:
       - 5000
     ports:
-      - "5001:5000"
+      - "5000:5000"
 networks:
   my-network:

@@ -58,6 +58,8 @@ def region():
     response = jsonify(
         resp
     ), 200
+
+    response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 

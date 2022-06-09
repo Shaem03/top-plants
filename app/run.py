@@ -15,7 +15,8 @@ def create_app():
     app = Flask(__name__)
 
     app.config.from_object(config["api"])
-    CORS(app)
+    cors = CORS()
+    cors.init_app(app, resources={r"/*": {"origins": "*", "supports_credentials": True}})
     db.init_app(app)
     ma.init_app(app)
 

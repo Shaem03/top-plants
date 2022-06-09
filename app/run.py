@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
@@ -14,7 +14,7 @@ ma = Marshmallow()
 def create_app():
     """For to use dynamic environment"""
     app = Flask(__name__)
-    cors = CORS(app, resources={r'/api/*': {'origin': '*'}})
+    cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
     app.config.from_object(config["api"])
     db.init_app(app)

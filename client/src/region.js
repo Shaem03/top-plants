@@ -1,9 +1,10 @@
 const base_url = 'http://0.0.0.0:5000'
 export function getRegion() {
-    const url = base_url + '/api/region'
+    const url = '/api/region'
     return fetch(url)
         .then(data => data.json())
 }
+
 
 export function filterByRegion(abbr, top_n) {
     let url = ""

@@ -17,7 +17,7 @@ services:
       - client
   client:
     build:
-      context: ../client/
+      context: ./client/
       dockerfile: Dockerfile-prod
     container_name: client
     volumes:
@@ -31,12 +31,12 @@ services:
       - "3000:3000"
   server:
     build:
-      context: ../
+      context: ./
       dockerfile: server/Dockerfile
     container_name: server
     command: gunicorn --bind 0.0.0.0:5000 --workers 4 --pythonpath /var/www/ "server.create_app:create_app(False)"
     volumes:
-      - ../server:/var/www/server
+      - ./server:/var/www/server
     networks:
       my-network:
         aliases:

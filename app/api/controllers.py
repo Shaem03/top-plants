@@ -1,5 +1,5 @@
 from flask import Response, jsonify, Blueprint, request
-from flask_cors import CORS, cross_origin
+from flask_cors import cross_origin
 from sqlalchemy import desc
 
 from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema
@@ -45,7 +45,7 @@ def filter_by_region():
 
 
 @mod_api.route("/region")
-@cross_origin()
+@cross_origin(supports_credentials=True)
 def region():
     regions = NercRegion()
     regions_data = regions.query.all()

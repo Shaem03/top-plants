@@ -14,7 +14,7 @@ ma = Marshmallow()
 def create_app():
     """For to use dynamic environment"""
     app = Flask(__name__)
-    CORS(app)
+    cors = CORS(app, resources={r'/api/*': {'origin': '*'}})
 
     app.config.from_object(config["api"])
     db.init_app(app)

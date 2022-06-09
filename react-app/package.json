@@ -1,6 +1,7 @@
 {
   "name": "react-app",
   "version": "0.1.0",
+  "proxy": "http://api:5000",
   "private": true,
   "dependencies": {
     "@iconify/icons-mdi": "^1.0.152",

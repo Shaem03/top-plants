@@ -17,8 +17,8 @@ services:
       - api
       - client
 networks:
-  frontend:
-  backend:
+  api:
+  client:
 #  ngnix:
 #    build: ./nginx
 #    container_name: nginx

@@ -5,7 +5,7 @@ MAINTAINER muhammedshaheem7@gmail.com
 ENV CONTAINER_HOME=/var/www
 WORKDIR $CONTAINER_HOME
 
-ADD requirements.txt .
+ADD ../requirements.txt .
 
 # keep the parent server directory structure for relative imports
 RUN mkdir server

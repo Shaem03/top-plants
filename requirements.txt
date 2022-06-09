@@ -5,6 +5,7 @@ python-dotenv
 Flask==2.1.0
 gunicorn
 Flask-Cors==1.10.3
+flask-cors
 itsdangerous==2.0.1
 Flask-SQLAlchemy
 marshmallow

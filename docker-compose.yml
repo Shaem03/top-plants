@@ -1,19 +1,24 @@
-version: '3'
+version: '3.8'
 
 services:
   api:
     build: ./app
     ports:
       - "5000:5000"
+    networks:
+      - api
   client:
     build: ./react-app
     ports:
       - "80:3000"
     depends_on:
       - api
+    networks:
+      - api
+      - client
 networks:
-  some-net:
-    driver: api
+  frontend:
+  backend:
 #  ngnix:
 #    build: ./nginx
 #    container_name: nginx

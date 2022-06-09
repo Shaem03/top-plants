@@ -2,7 +2,13 @@ const base_url = 'http://0.0.0.0:5000'
 
 export function getRegion() {
     const url = base_url + '/api/region'
-    return fetch(url, {mode: 'no-cors'})
+    let headers = {};
+    return fetch(url,
+        {
+            method: "GET",
+            mode: 'cors',
+            headers: headers
+        })
         .then(data => data.json())
 }
 

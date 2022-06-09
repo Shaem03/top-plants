@@ -1,15 +1,13 @@
 FROM node:14-slim as builder
 
-WORKDIR /frontend
+WORKDIR /app
 
-COPY ./package.json /frontend
-
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY ./package.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 80
+EXPOSE 3000
 
-CMD [ "npm", "run", "start" ]
+CMD ["npm", "run", "build"]

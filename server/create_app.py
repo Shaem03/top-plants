@@ -13,7 +13,7 @@ ma = Marshmallow()
 
 def create_app():
     """For to use dynamic environment"""
-    app = Flask(__name__)
+    app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(config["api"])
     logging.getLogger('flask_cors').level = logging.DEBUG
     db.init_app(app)
@@ -26,3 +26,6 @@ def create_app():
     app.register_blueprint(errors)
 
     return app
+
+
+application = create_app()

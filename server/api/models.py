@@ -1,5 +1,11 @@
-from run import db, metadata, ma
+from flask_marshmallow import Marshmallow
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
 from sqlalchemy import Table, PrimaryKeyConstraint
+
+db = SQLAlchemy()
+metadata = MetaData()
+ma = Marshmallow()
 
 
 class EGridPlant(db.Model):

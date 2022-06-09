@@ -1,14 +1,10 @@
 import logging
 
 from flask import Flask
-from flask_marshmallow import Marshmallow
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
 from config import config
-
-db = SQLAlchemy()
-metadata = MetaData()
-ma = Marshmallow()
+from server.api.controllers import mod_api
+from server.api.errors import errors
+from server.api.models import db, ma
 
 
 def create_app():
@@ -19,13 +15,13 @@ def create_app():
     db.init_app(app)
     ma.init_app(app)
 
-    from api.controllers import mod_api
-    from api.errors import errors
-
     app.register_blueprint(mod_api)
     app.register_blueprint(errors)
+
+    app.app_context().push()
 
     return app
 
 
 application = create_app()
+application.run()

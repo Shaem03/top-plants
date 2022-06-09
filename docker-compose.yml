@@ -3,13 +3,13 @@ version: '3.1'
 services:
   nginx:
     image: nginx:1.15
-    container_name: nginx12
+    container_name: nginx123
     restart: unless-stopped
     volumes:
       - ../client/build:/usr/share/nginx/html
-      - ./nginx-prod.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - 80:80
+      - "80:80"
     networks:
       - my-network
     depends_on:
@@ -19,7 +19,7 @@ services:
     build:
       context: ./client/
       dockerfile: Dockerfile
-    container_name: client
+    container_name: client123
     volumes:
       - ../client:/usr/app
       - /usr/app/node_modules
@@ -33,7 +33,7 @@ services:
     build:
       context: ./
       dockerfile: server/Dockerfile
-    container_name: server
+    container_name: server123
     command: gunicorn --bind 0.0.0.0:5000 --workers 4 --pythonpath /var/www/ "server.create_app:create_app(False)"
     volumes:
       - ./server:/var/www/server

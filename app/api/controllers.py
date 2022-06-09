@@ -45,7 +45,7 @@ def filter_by_region():
 
 
 @mod_api.route("/region")
-@cross_origin(supports_credentials=True)
+@cross_origin(origin='*')
 def region():
     regions = NercRegion()
     regions_data = regions.query.all()

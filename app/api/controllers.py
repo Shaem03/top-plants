@@ -1,5 +1,5 @@
 from flask import Response, jsonify, Blueprint, request
-from flask_cors import CORS
+from flask_cors import cross_origin
 from sqlalchemy import desc
 
 from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema
@@ -8,11 +8,13 @@ mod_api = Blueprint('api', __name__, url_prefix='/api')
 
 
 @mod_api.route("/")
+@cross_origin()
 def index():
     return Response("Welcome!", status=200)
 
 
 @mod_api.route("/top/<n>")
+@cross_origin()
 def top(n):
     egrid = EGridPlant()
     top_plants = egrid.query.order_by(desc(EGridPlant.annual_net_generation)).limit(n).all()
@@ -26,6 +28,7 @@ def top(n):
 
 
 @mod_api.route("/filter")
+@cross_origin()
 def filter_by_region():
     region_abbr = request.args.get('region')
     top_n_arg = request.args.get('top')
@@ -45,6 +48,7 @@ def filter_by_region():
 
 
 @mod_api.route("/region")
+@cross_origin()
 def region():
     regions = NercRegion()
     regions_data = regions.query.all()
@@ -58,5 +62,6 @@ def region():
 
 
 @mod_api.route("/health")
+@cross_origin()
 def health():
     return Response("OK", status=200)

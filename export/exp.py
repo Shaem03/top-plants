@@ -5,7 +5,9 @@ from sqlalchemy import create_engine
 class Export:
     def __init__(self):
         self.csv_file_path = "egrid2020_data.xlsx"
-        self.engine = create_engine('sqlite:///../app/csv_test.db')
+        # self.engine = create_engine('sqlite:///../app/csv_test.db')
+        self.engine = create_engine('postgresql+psycopg2://root:Km2cRjbUC2YCPTtg@plants-app.c2qhie5bxczn.ap-south-1.rds.amazonaws.com/plant-data')
+        # self.engine = create_engine('postgresql+psycopg2://root:Marines1@@localhost/plants-api')
 
     def convert_to_percent_string(self, value):
         return '{}%'.format(value * 100)
@@ -19,6 +21,7 @@ class Export:
         }
         data_df = pd.read_excel(self.csv_file_path, skiprows=1, sheet_name='PLNT20', converters=convertor)
         data_df.fillna(0, inplace=True)
+        data_df.columns = data_df.columns.str.lower()
         data_df.to_sql('e_grid_plant', con=self.engine, index=False, if_exists='replace')
 
     def export_region(self):
@@ -38,5 +41,5 @@ class Export:
 
 if __name__ == '__main__':
     exp = Export()
-    exp.export()
+    exp.export_region()
     # exp.alter()

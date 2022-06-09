@@ -1,7 +1,16 @@
 import os
 
 # Define the application directory
+from dotenv import load_dotenv
+
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+load_dotenv()
+
+username = os.environ.get('PSQL_USER_NAME')
+password = os.environ.get('PSQL_PASSWORD')
+host_name = os.environ.get('PSQL_HOST_NAME')
+db_name = os.environ.get('PSQL_DB')
+port = os.environ.get('PSQL_PORT')
 
 
 class Config(object):
@@ -15,34 +24,13 @@ class Config(object):
     CORS_HEADERS = 'Content-Type'
 
 
-class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'csv_test.db')
-
-
-class DevelopmentConfig(Config):
-    """Statement for enabling the development environment"""
-    # Define the database - we are working with
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'csv_test.db')
-    DEBUG = True
-
-
 class APIConfig(Config):
     """Statement for enabling the api environment"""
     # Define the database - we are working with
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'csv_test.db')
+    SQLALCHEMY_DATABASE_URI = F'postgresql+psycopg2://{username}:{password}@{host_name}/{db_name}'
     WTF_CSRF_ENABLED = False
-
-
-class TestingConfig(Config):
-    TESTING = True
-    WTF_CSRF_ENABLED = False
-    PRESERVE_CONTEXT_ON_EXCEPTION = False
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'csv_test.db')
 
 
 config = {
-    'development': DevelopmentConfig,
-    'testing': TestingConfig,
-    'production': ProductionConfig,
     'api': APIConfig,
 }

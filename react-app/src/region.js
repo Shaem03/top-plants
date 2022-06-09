@@ -1,5 +1,6 @@
+const base_url = 'http://127.0.0.1:8081'
 export function getRegion() {
-    const url = 'http://127.0.0.1:8081/api/region'
+    const url = base_url + '/api/region'
     return fetch(url)
         .then(data => data.json())
 }
@@ -7,9 +8,9 @@ export function getRegion() {
 export function filterByRegion(abbr, top_n) {
     let url = ""
     if (abbr != null) {
-        url = 'http://127.0.0.1:8081/api/filter?region=' + abbr + "&top=" + top_n
+        url = base_url + '/api/filter?region=' + abbr + "&top=" + top_n
     } else {
-        url = 'http://127.0.0.1:8081/api/filter?&top=' + top_n
+        url = base_url + '/api/filter?&top=' + top_n
     }
 
     return fetch(url)

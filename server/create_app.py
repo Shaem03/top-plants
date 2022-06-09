@@ -1,7 +1,7 @@
 import logging
 
 from flask import Flask
-from config import config
+from server.config import config
 from server.api.controllers import mod_api
 from server.api.errors import errors
 from server.api.models import db, ma

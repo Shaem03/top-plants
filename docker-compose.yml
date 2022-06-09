@@ -34,7 +34,7 @@ services:
       context: ./
       dockerfile: server/Dockerfile
     container_name: server123
-    command: gunicorn --bind 0.0.0.0:5000 --workers 4 wsgi:application
+    command: gunicorn --bind 0.0.0.0:5000 --workers 4 server.wsgi:application
     volumes:
       - ./server:/var/www/server
     networks:

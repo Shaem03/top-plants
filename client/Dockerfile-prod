@@ -8,8 +8,4 @@ RUN npm ci -qy
 
 COPY . .
 
-RUN chown nginx:nginx /usr/share/nginx/html/*
-
-chmod -R 755 ~/docker-share/html
-
 CMD ["npm", "run", "build"]

@@ -1,10 +1,9 @@
 from flask import Response, jsonify, Blueprint, request
 from flask_cors import cross_origin, CORS
 from sqlalchemy import desc
+from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema
 
 mod_api = Blueprint('api', __name__, url_prefix='/api')
-
-from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema
 
 
 @mod_api.route("/")

@@ -2,9 +2,9 @@ import logging
 
 from flask import Flask
 from server.config import config
-from server.api.controllers import mod_api
-from server.api.errors import errors
-from server.api.models import db, ma
+from server.view.controllers import mod_api
+from server.view.errors import errors
+from server.view.models import db, ma
 
 
 def create_app():
@@ -24,4 +24,3 @@ def create_app():
 
 
 application = create_app()
-application.run()

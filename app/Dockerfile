@@ -21,6 +21,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+#EXPOSE 5000
 
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:application", "--workers=5", "--timeout=300"]
+#CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:application", "--workers=5", "--timeout=300"]

@@ -5,7 +5,6 @@ from sqlalchemy import desc
 from .models import EGridPlant, EGridPlantSchema, NercRegion, NercRegionSchema
 
 mod_api = Blueprint('api', __name__, url_prefix='/api')
-CORS(mod_api, support_credentials=True, resource={r"/api/*": {"origins": "http://65.1.134.254"}})
 
 
 @mod_api.route("/")

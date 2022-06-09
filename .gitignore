@@ -150,5 +150,5 @@ dmypy.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/react-app/node_modules/
-/react-app/package-lock.json
+/client/node_modules/
+/client/package-lock.json

@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm ci -qy
 
+RUN npm install
+
 COPY . .
 
 CMD ["npm", "run", "build"]

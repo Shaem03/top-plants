@@ -40,6 +40,7 @@ services:
       context: ./app
       dockerfile: Dockerfile
     container_name: api
+    command: gunicorn --bind 0.0.0.0:5000 --workers 4 wsgi:application
     volumes:
       - './app:/var/www/app'
     networks:

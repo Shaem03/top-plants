@@ -11,4 +11,4 @@ ADD requirements.txt .
 RUN mkdir server
 ADD server $CONTAINER_HOME/server
 
-RUN pip install --no-cache-dir -r ../requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt

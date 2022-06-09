@@ -2,7 +2,6 @@ from flask import Flask
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-from flask_cors import CORS
 from config import config
 
 db = SQLAlchemy()
@@ -15,8 +14,6 @@ def create_app():
     app = Flask(__name__)
 
     app.config.from_object(config["api"])
-    cors = CORS()
-    cors.init_app(app, resources={r"/*": {"origins": "*", "supports_credentials": True}})
     db.init_app(app)
     ma.init_app(app)
 

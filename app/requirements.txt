@@ -1,0 +1,11 @@
+boto3
+boto3[crt]
+requests
+python-dotenv
+Flask==2.1.0
+gunicorn
+flask-cors
+itsdangerous==2.0.1
+Flask-SQLAlchemy
+marshmallow
+flask-marshmallow

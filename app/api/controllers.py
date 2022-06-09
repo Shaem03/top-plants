@@ -59,7 +59,7 @@ def region():
         resp
     ), 200
 
-    response.headers.add("Access-Control-Allow-Origin", "http://65.1.134.254/")
+    response.headers.add("Access-Control-Allow-Origin", "http://65.1.134.254")
     return response
 
 

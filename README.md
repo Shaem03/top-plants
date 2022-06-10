@@ -2,7 +2,7 @@
 
 I've built api using Flask framework in Python and the Google Maps is integrated with React.
 
-APP URL: http://65.1.134.254/
+APP URL: `http://65.1.134.254/`
 
 Feature:
 - The app can list top **N** number of plants.

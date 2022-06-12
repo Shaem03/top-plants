@@ -13,7 +13,6 @@ function App() {
     const handleTopSearch = (event) => {
         const value = event.target.value.toLowerCase();
         if (value >= 1) {
-
             setTopN(value.toString())
             filterByRegion(selectedRegion, value)
                 .then(items => {
@@ -24,13 +23,13 @@ function App() {
 
     const filterRegion = (event) => {
         let value = event.target.value;
-
-        setSelectedRegion(value)
-        filterByRegion(value, topN)
-            .then(items => {
-                setPlantsData(items)
-            })
-
+        if (value != null) {
+            setSelectedRegion(value)
+            filterByRegion(value, topN)
+                .then(items => {
+                    setPlantsData(items)
+                })
+        }
     }
 
     useEffect(() => {

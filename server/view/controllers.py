@@ -33,7 +33,7 @@ def filter_by_region():
     top_n_arg = request.args.get('top')
     top_n = top_n_arg if top_n_arg else 10
     egrid = EGridPlant()
-    if region_abbr:
+    if region_abbr and region_abbr != "All":
         filtered_plants = egrid.query.order_by(desc(EGridPlant.annual_net_generation)).filter(
             EGridPlant.state_abbr == region_abbr.upper()).limit(top_n).all()
     else:

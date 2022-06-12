@@ -23,13 +23,11 @@ function App() {
 
     const filterRegion = (event) => {
         let value = event.target.value;
-        if (value != null) {
-            setSelectedRegion(value)
-            filterByRegion(value, topN)
-                .then(items => {
-                    setPlantsData(items)
-                })
-        }
+        setSelectedRegion(value)
+        filterByRegion(value, topN)
+            .then(items => {
+                setPlantsData(items)
+            })
     }
 
     useEffect(() => {
@@ -56,7 +54,7 @@ function App() {
                     className="form-control"
                     onChange={(event) => filterRegion(event)}
                 >
-                    <option key='1' value={null}>Select Region to Filter</option>
+                    <option value={null} value="All">Select Region to Filter</option>
                     {regionData.map((item, index) => (
                         <option key={index} value={item.acronym}>
                             {item.name}

@@ -22,7 +22,7 @@ class Config(object):
     # Enable protection agains *Cross-site Request Forgery (CSRF)*
     WTF_CSRF_ENABLED = True
     CORS_HEADERS = 'Content-Type'
-    SQLALCHEMY_POOL_RECYCLE = 3600
+    SQLALCHEMY_POOL_RECYCLE = 60
 
 
 class APIConfig(Config):

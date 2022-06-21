@@ -16,6 +16,8 @@ def create_app():
 
     app.config.from_object(config["api"])
     logging.getLogger('flask_cors').level = logging.DEBUG
+
+    app.app_context().push()
     db.init_app(app)
     ma.init_app(app)
 

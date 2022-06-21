@@ -16,13 +16,9 @@ port = os.environ.get('PSQL_PORT')
 class Config(object):
     DATABASE_CONNECT_OPTIONS = {}
 
-    # Turn off Flask-SQLAlchemy event system
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
-
     # Enable protection agains *Cross-site Request Forgery (CSRF)*
     WTF_CSRF_ENABLED = True
     CORS_HEADERS = 'Content-Type'
-    SQLALCHEMY_POOL_RECYCLE = 60
 
 
 class APIConfig(Config):
@@ -30,6 +26,8 @@ class APIConfig(Config):
     # Define the database - we are working with
     SQLALCHEMY_DATABASE_URI = F'postgresql+psycopg2://{username}:{password}@{host_name}/{db_name}'
     WTF_CSRF_ENABLED = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_POOL_RECYCLE = 280
 
 
 config = {

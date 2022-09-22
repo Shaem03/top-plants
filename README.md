@@ -1,6 +1,6 @@
 ## Top N Plants
 
-I've built api using Flask framework in Python and the Google Maps is integrated with React.
+API using Flask framework in Python and the Google Maps is integrated with React.
 
 APP URL: `http://65.1.134.254/`
 
